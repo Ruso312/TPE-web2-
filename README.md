@@ -8,7 +8,7 @@
 
 ## Descripcion del proyecto
 El presente proyecto representa una aplicacion para el control del progreso de un *Cliente* en un gimnasio, llevando a cabo un seguimiento mediante los ejercicios realizados, este usuario podra modificar, agregar o eliminar los ejercicios a medida que lo vea necesario.
-Estos ejercicios se almacenan en una tabla llamada *Ejercicio* donde se incluye la clave foranea **(Foreing Key)** estableciendo asi la relacion **1** a **n**, esto quiere decir que para cada *Cliente* se le puede asignar uno o mas ejercicios.
+Estos ejercicios se almacenan en una tabla llamada *Ejercicio* donde se incluye la clave foranea **(Foreign Key)** estableciendo asi la relacion **1** a **n**, esto quiere decir que para cada *Cliente* se le puede asignar uno o mas ejercicios.
 
 
 # Diagrama *Entidad-Relacion* de la base de datos del proyecto:
@@ -18,15 +18,15 @@ Estos ejercicios se almacenan en una tabla llamada *Ejercicio* donde se incluye 
 ### Explicacion de las tablas involucradas
 **Cliente:**
   La tabla Cliente simula un usuario que este utilizando la aplicacion que ingresara los datos de los ejercicios que va a realizar, este consta de:
-  ```
-  *- id:* Identificador unico auto incremental.
-  *- nombre:* Nombre del Cliente.
-  *- email:* Email del Cliente.
+<pre>  
+  *- id:* Identificador unico auto incremental. 
+  *- nombre:* Nombre del Cliente.  
+  *- email:* Email del Cliente.  
   *- contraseña:* Constraseña del Cliente. (momentaneamente no encriptada)
-```
+</pre>  
 **Ejercicio:**
    Esta tabla consta de las caracteristicas basicas del ejercicio que se va a implementar para la realizacion del ejercicio, se pueden obvservar datos, ademas de los datos con nombres implicitos (ej. nombre_ejercicio, musculo_implicado, etc.) como:
-  ```
+<pre>
   *- id:* Identificacion unica del ejercicio.
   *- cliente_id:* Clave foranea que vincula un Cliente con un Ejercicio dado.
-  ```
+</pre>
