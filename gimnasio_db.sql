@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-09-2024 a las 15:37:59
+-- Tiempo de generación: 17-09-2024 a las 19:29:26
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -29,10 +29,17 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `cliente` (
   `id` int(11) NOT NULL,
-  `nombre` varchar(45) NOT NULL,
-  `email` varchar(150) NOT NULL,
-  `contraseña` varchar(200) NOT NULL
+  `nombre` varchar(40) NOT NULL,
+  `email` varchar(40) NOT NULL,
+  `contraseña` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `cliente`
+--
+
+INSERT INTO `cliente` (`id`, `nombre`, `email`, `contraseña`) VALUES
+(1, 'marco', 'test@test.com', '123456');
 
 -- --------------------------------------------------------
 
@@ -49,6 +56,14 @@ CREATE TABLE `ejercicio` (
   `repeticiones` int(30) NOT NULL,
   `cliente_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `ejercicio`
+--
+
+INSERT INTO `ejercicio` (`id`, `nombre_ejercicio`, `musculo_implicado`, `descripcion`, `series`, `repeticiones`, `cliente_id`) VALUES
+(1, 'press banca', 'pectoral', NULL, 4, 10, 1),
+(2, 'press inclinado', 'pectoral', 'similar al ejercicio de press banca pero con una inclinación de 45°', 4, 8, 1);
 
 --
 -- Índices para tablas volcadas
@@ -75,13 +90,13 @@ ALTER TABLE `ejercicio`
 -- AUTO_INCREMENT de la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `ejercicio`
 --
 ALTER TABLE `ejercicio`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restricciones para tablas volcadas
