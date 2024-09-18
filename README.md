@@ -19,14 +19,14 @@ Estos ejercicios se almacenan en una tabla llamada *Ejercicio* donde se incluye 
 **Cliente:**
   La tabla Cliente simula un usuario que este utilizando la aplicacion que ingresara los datos de los ejercicios que va a realizar, este consta de:
 <pre>  
-  *- id:* Identificador unico auto incremental. 
-  *- nombre:* Nombre del Cliente.  
-  *- email:* Email del Cliente.  
-  *- contraseña:* Constraseña del Cliente. (momentaneamente no encriptada)
+  - id: Identificador unico auto incremental. 
+  - nombre: Nombre del Cliente.  
+  - email: Email del Cliente.  
+  - contraseña: Constraseña del Cliente. (momentaneamente no encriptada)
 </pre>  
 **Ejercicio:**
    Esta tabla consta de las caracteristicas basicas del ejercicio que se va a implementar para la realizacion del ejercicio, se pueden obvservar datos, ademas de los datos con nombres implicitos (ej. nombre_ejercicio, musculo_implicado, etc.) como:
 <pre>
-  *- id:* Identificacion unica del ejercicio.
-  *- cliente_id:* Clave foranea que vincula un Cliente con un Ejercicio dado.
+  - id: Identificacion unica del ejercicio.
+  - cliente_id: Clave foranea que vincula un Cliente con un Ejercicio dado.
 </pre>
