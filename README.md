@@ -5,7 +5,7 @@ ccc# Trabajo Practico Especial de Web 2
   *  :email:: marcodace00@gmail.com
 * Santillan Ramos Patricio
   *  :email:: Patricio21102000@hotmail.com
-  *  
+    
 ## Descripcion del proyecto
 El presente proyecto representa una aplicacion para el control del progreso de un *Cliente* en un gimnasio, llevando a cabo un seguimiento mediante los ejercicios realizados, este usuario podra modificar, agregar o eliminar los ejercicios a medida que lo vea necesario.
 Estos ejercicios se almacenan en una tabla llamada *Ejercicio* donde se incluye la clave foranea **(Foreign Key)** estableciendo asi la relacion **1** a **n**, esto quiere decir que para cada *Cliente* se le puede asignar uno o mas ejercicios.
