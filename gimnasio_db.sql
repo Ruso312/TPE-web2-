@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-09-2024 a las 19:29:26
+-- Tiempo de generación: 24-09-2024 a las 00:40:13
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -30,16 +30,15 @@ SET time_zone = "+00:00";
 CREATE TABLE `cliente` (
   `id` int(11) NOT NULL,
   `nombre` varchar(40) NOT NULL,
-  `email` varchar(40) NOT NULL,
-  `contraseña` varchar(30) NOT NULL
+  `email` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `cliente`
 --
 
-INSERT INTO `cliente` (`id`, `nombre`, `email`, `contraseña`) VALUES
-(1, 'marco', 'test@test.com', '123456');
+INSERT INTO `cliente` (`id`, `nombre`, `email`) VALUES
+(1, 'marco', 'test@test.com');
 
 -- --------------------------------------------------------
 
