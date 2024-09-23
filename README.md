@@ -1,4 +1,4 @@
-ccc# Trabajo Practico Especial de Web 2
+# Trabajo Practico Especial de Web 2
 
 **:computer:Desarrolladores:**
 * Dacenzo Marco
