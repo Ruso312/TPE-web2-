@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-09-2024 a las 00:40:13
+-- Tiempo de generación: 28-09-2024 a las 17:58:32
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -30,15 +30,9 @@ SET time_zone = "+00:00";
 CREATE TABLE `cliente` (
   `id` int(11) NOT NULL,
   `nombre` varchar(40) NOT NULL,
-  `email` varchar(40) NOT NULL
+  `email` varchar(40) NOT NULL,
+  `contraseña` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Volcado de datos para la tabla `cliente`
---
-
-INSERT INTO `cliente` (`id`, `nombre`, `email`) VALUES
-(1, 'marco', 'test@test.com');
 
 -- --------------------------------------------------------
 
@@ -55,14 +49,6 @@ CREATE TABLE `ejercicio` (
   `repeticiones` int(30) NOT NULL,
   `cliente_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `ejercicio`
---
-
-INSERT INTO `ejercicio` (`id`, `nombre_ejercicio`, `musculo_implicado`, `descripcion`, `series`, `repeticiones`, `cliente_id`) VALUES
-(1, 'press banca', 'pectoral', NULL, 4, 10, 1),
-(2, 'press inclinado', 'pectoral', 'similar al ejercicio de press banca pero con una inclinación de 45°', 4, 8, 1);
 
 --
 -- Índices para tablas volcadas
