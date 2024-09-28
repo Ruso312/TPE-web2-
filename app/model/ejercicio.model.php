@@ -10,9 +10,9 @@
             $this->db = parent::$db;    
     }   
         //Obtenemos todos los Ejercicios de un Cliente dado.
-        public function getEjerciciosByID($id){
-            $query = $this->db->prepare("SELECT * FROM Ejercicio WHERE clienete_id = ?");
-            $query->execute([$id]);
+        public function getEjercicios(){
+            $query = $this->db->prepare("SELECT * FROM ejercicio");
+            $query->execute();
             $ejercicios = $query->fetchAll(PDO::FETCH_OBJ);
 
             return $ejercicios;

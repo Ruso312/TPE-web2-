@@ -2,9 +2,20 @@
     require_once "libs/Router.php";
     require_once "app/controller/clienteEjercicio.controller.php";
 
-    $router = new Router();
+    define('BASE_URL','//'.$_SERVER['SERVER_NAME'].':'.$_SERVER['SERVER_PORT'].dirname($_SERVER['PHP_SELF']).'/');
 
-    $router->addRoute('ejercicios','GET','ClienteEjercicioController','obtenerEjercicios');
+    $action = 'main';
+    if(!empty($_GET['action'])){
+        $action = $_GET['action'];
+    }
 
-    $router->route($_GET['resource'],$_SERVER['REQUEST_METHOD']);
+    $params = explode('/', $action);
+
+    switch($params[]){
+        case 'ejercicios':
+            $controller = new ClienteEjercicioController();
+            $controller->obtenerEjercicios();
+            break;
+    }
+
 

@@ -16,19 +16,20 @@ class ClienteEjercicioController{
         
     }
 
-    public function obtenerEjercicios($params =[]){
-        if($params){
-            $ejercicios = $this->modelEjercicio->obtenerEjerciciosByID($params[":ID"]);
+    public function obtenerEjercicios(){
+            $ejercicios = $this->modelEjercicios->getEjercicios();
+            foreach($ejercicios as $ejercicio){
+                $this->view->mostrarEjercicios($ejercicio);
+            }
         }
-        
-
+        else{
+            $this->view->mostrarError();
+        }
 
     }
 
     public function showItemById($id){
-
-
-
+        if()
     }
 
 
