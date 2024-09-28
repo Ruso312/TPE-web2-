@@ -30,3 +30,4 @@ Estos ejercicios se almacenan en una tabla llamada *Ejercicio* donde se incluye 
   - id: Identificacion unica del ejercicio.
   - cliente_id: Clave foranea que vincula un Cliente con un Ejercicio dado.
 </pre>
+-
