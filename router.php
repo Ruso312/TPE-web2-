@@ -16,6 +16,9 @@
             $controller = new ClienteEjercicioController();
             $controller->obtenerEjercicios();
             break;
+        default:
+            echo"404 Page Not Found";
+            break;
     }
 
 
