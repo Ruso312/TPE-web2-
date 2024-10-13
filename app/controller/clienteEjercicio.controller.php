@@ -9,20 +9,16 @@ class ClienteEjercicioController{
     private $modelEjercicio;
     private $view;
 
-    public function __construct($modelCliente, $modelEjercicio, $view){
+    public function __construct(){
         $this->modelCliente = new ClienteModel();
         $this->modelEjercicio = new EjercicioModel();
         $this->view = new ClienteEjercicioView();
         
     }
 
-    public function obtenerEjercicios($params =[]){
-        if($params){
-            $ejercicios = $this->modelEjercicio->obtenerEjerciciosByID($params[":ID"]);
-        }
-        
-
-
+    public function showEjercicios(){
+        $ejercicios = $this->modelEjercicio->obtenerEjercicios();
+        return $this->view->showEjercicios();
     }
 
     public function showItemById($id){
@@ -30,9 +26,4 @@ class ClienteEjercicioController{
 
 
     }
-
-
-
-
-
 }
