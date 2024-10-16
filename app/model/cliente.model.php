@@ -1,14 +1,15 @@
 <?php
-
-class ClienteModel {
-    private $db;
+    require_once "./app/model/model.php";
+    
+class ClienteModel extends Model {
+    //private $db;
 
     public function __construct(){
-    $this->db = new PDO("mysql:host=localhost;dbname=gimnasio_db", "root", "");
+        parent::__construct();
     }
 
     //TODO:: consultas a la tabla Cliente
-    public function getCliente(){
+    public function getClientes(){
         $query = $this->db->prepare('SELECT * FROM cliente');
         $query->execute();
         return $query->fetchAll(PDO::FETCH_OBJ);

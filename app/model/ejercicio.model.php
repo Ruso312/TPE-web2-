@@ -1,13 +1,11 @@
 <?php
+    require_once './app/model/model.php';
 
-    require_once "./model/model.php";
-    
     class EjercicioModel extends Model{
-        private $db;
+        //private $db;
 
-        //@Override
         public function __construct(){
-            $this->db = parent::$db;    
+            parent::__construct();    
     }   
 
     public function getEjercicios(){

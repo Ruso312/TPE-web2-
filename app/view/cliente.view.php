@@ -1,9 +1,30 @@
 <?php
 
-require_once "./model/cliente.model.php";
-require_once "./model/ejercicio.model.php";
+require_once "./app/model/cliente.model.php";
+require_once "./app/model/ejercicio.model.php";
 
 class ClienteEjercicioView{
+
+    public function showMain($ejercicios, $clientes){
+        foreach($ejercicios as $ejercicio){
+            echo '<div>';
+                $ejercicio->nombre_ejercicio;
+                $ejercicio->musculo_implicado;
+                if(isset($ejercicio->descripcion)){
+                    $ejercicio->descripcion;
+                }
+                $ejercicio->series;
+                $ejercicio->repeticiones;
+            echo '</div>';
+        }
+
+        foreach($clientes as $cliente){
+            echo '<div>';
+                $cliente->nombre;
+                $cliente->email;
+            echo '</div>';
+        }
+    }
 
     public function showEjercicios($ejercicios){
         foreach($ejercicios as $ejercicio){

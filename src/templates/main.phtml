@@ -1,0 +1,24 @@
+<?php require './templates/layout/header.phtml'?>
+
+<ul class="list-group">
+    <?php foreach ($ejericios as $ejercicio): ?>
+        <li class="list-group-item item-ejercicio mt-3">
+            <div>
+                <b><?= $ejercicio->nombre_ejercicio ?></b> | <b><?=$ejercicio->musculo_implicado ?></b>
+            </div>
+            <div class="actions">
+                <a href="ejercicio/<?= $ejercicio->id ?>" type="button">Ver más</a>
+            </div>
+        </li>
+    <?php endforeach ?>
+    <?php foreach ($clientes as $ecliente): ?>
+        <li class="list-group-item item-ejercicio mt-3">
+            <div>
+                <b><?= $cliente->nombre ?></b> | <b><?=$ejercicio->musculo_implicado ?></b>
+            </div>
+            <div class="actions">
+                <a href="ejercicio/<?= $ejercicio->id ?>" type="button">Ver más</a>
+            </div>
+        </li>
+    <?php endforeach ?>
+</ul>

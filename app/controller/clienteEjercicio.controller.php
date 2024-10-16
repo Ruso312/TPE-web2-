@@ -15,15 +15,10 @@ class ClienteEjercicioController{
         $this->view = new ClienteEjercicioView();
         
     }
-
-    public function showEjercicios(){
-        $ejercicios = $this->modelEjercicio->obtenerEjercicios();
-        return $this->view->showEjercicios();
-    }
-
-    public function showItemById($id){
-
-
-
+    //Funcion para mostrar el Home de la pagina.
+    public function showMain(){
+        $ejercicios = $this->modelEjercicio->getEjercicios();
+        $clientes = $this->modelCliente->getClientes();
+        return $this->view->showMain($ejercicios, $clientes);
     }
 }
