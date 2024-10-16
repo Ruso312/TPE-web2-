@@ -11,7 +11,7 @@
 
     $params = explode('/', $action);
 
-    switch($params[]){
+    switch($params[0]){
         case 'ejercicios':
             $controller = new ClienteEjercicioController();
             $controller->obtenerEjercicios();
