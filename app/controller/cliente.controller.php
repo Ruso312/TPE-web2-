@@ -4,7 +4,7 @@ require_once "./app/model/ejercicio.model.php";
 require_once "./app/model/cliente.model.php";
 require_once "./app/view/cliente.view.php";
 
-class ClienteEjercicioController{
+class ClienteController{
     private $modelCliente;
     private $modelEjercicio;
     private $view;
@@ -16,9 +16,9 @@ class ClienteEjercicioController{
         
     }
     //Funcion para mostrar el Home de la pagina.
-    public function showMain(){
+    public function showHome(){
         $ejercicios = $this->modelEjercicio->getEjercicios();
         $clientes = $this->modelCliente->getClientes();
-        return $this->view->showMain($ejercicios, $clientes);
+        return $this->view->showHome($ejercicios, $clientes);
     }
 }

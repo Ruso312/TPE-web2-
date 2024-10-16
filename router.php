@@ -1,12 +1,25 @@
 <?php
-    require_once "libs/Router.php";
-    require_once "app/controller/clienteEjercicio.controller.php";
+    //require_once "libs/Router.php";
+    require_once "app/controller/cliente.controller.php";
 
-    $router = new Router();
+    
+    $action = 'home'; //default action
 
-    $router->setDefaultRoute('ClienteEjercicioController','showMain');
+    //en caso de no venir por parámetro es remplazada con la default
+    if(!empty($_GET['action'])){
+        $action = $_GET['action'];
+    }
 
-    $router->addRoute('ejercicios','GET','ClienteEjercicioController','obtenerEjercicios');
+    //separa lo que viene por parametros
+    $params = explode('/', $action);
 
-    $router->route($_GET['resource'],$_SERVER['REQUEST_METHOD']);
+    switch($params[0]){
+        case 'home':
+            $controller = new ClienteController();
+            $controller->showHome();
+            break;
+        default:
+            echo"404 Page Not Found";
+            break;
+    }
 

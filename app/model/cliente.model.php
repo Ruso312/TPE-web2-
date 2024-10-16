@@ -2,7 +2,7 @@
     require_once "./app/model/model.php";
     
 class ClienteModel extends Model {
-    //private $db;
+    private $db;
 
     public function __construct(){
         parent::__construct();

@@ -5,25 +5,26 @@ require_once "./app/model/ejercicio.model.php";
 
 class ClienteEjercicioView{
 
-    public function showMain($ejercicios, $clientes){
+    public function showHome($ejercicios, $clientes){
         foreach($ejercicios as $ejercicio){
             echo '<div>';
-                $ejercicio->nombre_ejercicio;
-                $ejercicio->musculo_implicado;
-                if(isset($ejercicio->descripcion)){
-                    $ejercicio->descripcion;
-                }
-                $ejercicio->series;
-                $ejercicio->repeticiones;
+            $ejercicio->nombre_ejercicio;
+            $ejercicio->musculo_implicado;
+            if(isset($ejercicio->descripcion)){
+                $ejercicio->descripcion;
+            }
+            $ejercicio->series;
+            $ejercicio->repeticiones;
             echo '</div>';
         }
-
+        
         foreach($clientes as $cliente){
             echo '<div>';
-                $cliente->nombre;
-                $cliente->email;
+            $cliente->nombre;
+            $cliente->email;
             echo '</div>';
         }
+        require 'src/templates/home.phtml';
     }
 
     public function showEjercicios($ejercicios){
