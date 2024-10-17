@@ -1,25 +1,33 @@
 <?php
-    //require_once "libs/Router.php";
-    require_once "app/controller/cliente.controller.php";
+    require_once "app/controller/clienteEjercicio.controller.php";
 
-    
-    $action = 'home'; //default action
+    // base_url para redirecciones y base tag
+    define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
-    //en caso de no venir por parámetro es remplazada con la default
+
+    $action = 'home';
+
     if(!empty($_GET['action'])){
         $action = $_GET['action'];
     }
 
-    //separa lo que viene por parametros
-    $params = explode('/', $action);
+    // parsea la accion para separar accion real de parametros
+    $parametro = explode('/', $action);
 
-    switch($params[0]){
+    switch ($parametro[0]){
         case 'home':
-            $controller = new ClienteController();
-            $controller->showHome();
+            $controlador = new ClienteController();
+            $controlador->showHome();
             break;
-        default:
-            echo"404 Page Not Found";
+        case 'genero':
+            $controlador = new ClienteController();
+            $controlador->showMovies($parametro[1]);
             break;
+        case 'disney' :
+            $controlador = new ClienteController();
+            $controlador->showDisney($parametro[0]);
+            break;
+        default: 
+        echo "404 Page Not Found"; // deberiamos llamar a un controlador que maneje esto
+        break;
     }
-
