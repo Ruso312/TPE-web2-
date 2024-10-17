@@ -9,10 +9,10 @@ class ClienteController{
     private $modelEjercicio;
     private $view;
 
-    public function __construct(){
+    public function __construct($res){
         $this->modelCliente = new ClienteModel();
         $this->modelEjercicio = new EjercicioModel();
-        $this->view = new ClienteEjercicioView();
+        $this->view = new ClienteEjercicioView($res->user);
         
     }
     //Funcion para mostrar el Home de la pagina.
