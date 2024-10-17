@@ -19,14 +19,6 @@
             $controlador = new ClienteController();
             $controlador->showHome();
             break;
-        case 'genero':
-            $controlador = new ClienteController();
-            $controlador->showMovies($parametro[1]);
-            break;
-        case 'disney' :
-            $controlador = new ClienteController();
-            $controlador->showDisney($parametro[0]);
-            break;
         default: 
         echo "404 Page Not Found"; // deberiamos llamar a un controlador que maneje esto
         break;
