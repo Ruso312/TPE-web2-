@@ -11,10 +11,10 @@
             </div>
         </li>
     <?php endforeach ?>
-    <?php foreach ($clientes as $ecliente): ?>
+    <?php foreach ($clientes as $cliente): ?>
         <li class="list-group-item item-ejercicio mt-3">
             <div>
-                <b><?= $cliente->nombre ?></b> | <b><?=$ejercicio->musculo_implicado ?></b>
+                <b><?= $cliente->nombre ?></b> | <b><?=$ejercicio->nombre_ejercicio ?></b>
             </div>
             <div class="actions">
                 <a href="ejercicio/<?= $ejercicio->id ?>" type="button">Ver más</a>
