@@ -19,6 +19,12 @@ class ClienteModel {
         return $query->fetchAll(PDO::FETCH_OBJ);
     }
 
+    public function getClienteByEmail($email){
+        $query = $this->db->prepare('SELECT * FROM cliente WHERE email = ?');
+        $query->execute([$email]);
+        return $query->fetchAll(PDO::FETCH_OBJ);
+    }
+
     public function addCliente($nombre,$email,$contraseña){
         $query = $this->db->prepare('INSERT INTO cliente()');
     }

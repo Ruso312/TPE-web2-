@@ -6,7 +6,7 @@ require_once "./app/model/ejercicio.model.php";
 class ClienteEjercicioView{
     private $user = null;
 
-    public function __construct($user){
+    public function __construct($user) {
         $this->user = $user;
     }
 
@@ -19,6 +19,6 @@ class ClienteEjercicioView{
     }
 
     public function showClientes($clientes){
-  
+
     }
 }
