@@ -31,7 +31,7 @@ CREATE TABLE `cliente` (
   `id` int(11) NOT NULL,
   `nombre` varchar(40) NOT NULL,
   `email` varchar(40) NOT NULL,
-  `contraseña` varchar(11) NOT NULL,
+  `contraseña` varchar(100) NOT NULL,
   `rol` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -40,9 +40,9 @@ CREATE TABLE `cliente` (
 --
 
 INSERT INTO `cliente` (`id`, `nombre`, `email`, `contraseña`, `rol`) VALUES
-(1, 'admin', 'webadmin@gmail.com', 'admin', 'admin'),
-(2, 'Patricio', 'patri@gmail.com', 'patricontraseña', 'cliente'),
-(3, 'Marco', 'marco@gmail.com', 'marcocontraseña', 'cliente');
+(1, 'admin', 'webadmin@gmail.com', '$2y$10$/Q9UfoEoQafhi0r.mZ1MZ.CkeFQqUr/Dg1FT6MUnSM0kNZqlsMLCO', 'admin'),
+(2, 'Patricio', 'patri@gmail.com', '$2y$10$4o/UXKIvFQjsX90oN08IeeO0DteWsd.2/Ayse18Vs9AUpN/aNYhue', 'cliente'),
+(3, 'Marco', 'marco@gmail.com', '$2y$10$OMg1h19GwZ.NYkDwEj3ySO1IzsMS9r50zfCQwGLlwChcctHIsTMr2', 'cliente');
 
 -- --------------------------------------------------------
 

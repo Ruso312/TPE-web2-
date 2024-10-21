@@ -30,12 +30,13 @@ class AuthController {
     
         // Verificar que el usuario está en la base de datos
         $cliente = $this->model->getClienteByEmail($email);
-
+        //console.log($cliente);
+        print_r($cliente);
         if($cliente && password_verify($contraseña, $cliente->contraseña)){
             // Guardo en la sesión el ID del usuario
             session_start();
-            $_SESSION['ID_USER'] = $cliente->id;
-            $_SESSION['EMAIL_USER'] = $cliente->email;
+            $_SESSION['ID_CLIENTE'] = $cliente->id;
+            $_SESSION['EMAIL_CLIENTE'] = $cliente->email;
             $_SESSION['LAST_ACTIVITY'] = time();
     
             // Redirijo al home

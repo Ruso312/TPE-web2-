@@ -4,21 +4,25 @@ require_once "./app/model/cliente.model.php";
 require_once "./app/model/ejercicio.model.php";
 
 class ClienteEjercicioView{
-    private $user = null;
+    private $cliente = null;
 
-    public function __construct($user) {
-        $this->user = $user;
+    public function __construct($cliente) {
+        $this->cliente = $cliente;
     }
 
     public function showHome($ejercicios, $clientes){
         require './src/templates/home.phtml';
     }
 
-    public function showEjercicios($ejercicios){
-
+    public function crearCliente(){
+        require './src/templates/form_user.phtml';
     }
 
-    public function showClientes($clientes){
+    public function showError($error = ''){
+        require './src/template/layout/showError.phtml';
+    }
 
+    public function showEjercicio($ejercicio){
+        require './src/templates/layout/ejercicio';
     }
 }
