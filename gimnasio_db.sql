@@ -31,8 +31,18 @@ CREATE TABLE `cliente` (
   `id` int(11) NOT NULL,
   `nombre` varchar(40) NOT NULL,
   `email` varchar(40) NOT NULL,
-  `contraseña` int(11) NOT NULL
+  `contraseña` varchar(11) NOT NULL,
+  `rol` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Volcado de datos para la tabla cliente
+--
+
+INSERT INTO `cliente` (`id`, `nombre`, `email`, `contraseña`, `rol`) VALUES
+(1, 'admin', 'webadmin@gmail.com', 'admin', 'admin'),
+(2, 'Patricio', 'patri@gmail.com', 'patricontraseña', 'cliente'),
+(3, 'Marco', 'marco@gmail.com', 'marcocontraseña', 'cliente');
 
 -- --------------------------------------------------------
 
@@ -93,6 +103,10 @@ ALTER TABLE `ejercicio`
 ALTER TABLE `ejercicio`
   ADD CONSTRAINT `fk_cliente` FOREIGN KEY (`cliente_id`) REFERENCES `cliente` (`id`);
 COMMIT;
+
+INSERT INTO `ejercicio` (`id`, `nombre_ejercicio`, `musculo_implicado`, `descripcion`, `series`, `repeticiones`, `cliente_id`) VALUES
+(1, 'Sentadilla', 'Cuadriceps', 'Con la barra cargada en los hombros, realizar una flexión de rodillas donde los gluteos casi toquen los tobillos, luego volver a extensión.', 3, 8, 2),
+(2, 'Remo acostado', 'Espalda', 'Recostado boca abajo sobre un banco elevado, llevar la barra al pecho flexionando los codos, intentando que el movimiento sea lo más recto posible.', 4, 6, 2);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
