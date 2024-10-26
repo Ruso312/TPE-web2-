@@ -26,7 +26,18 @@ class ClienteController{
         return $this->view->showError($error);
     }
 
-    //Funcion para actualizar un cliente
+    public function showEjercicio($params = []){
+        if(isset($params[0]) && !empty($params[0])){
+            $id = $params[0];
+            $ejercicio = $this->modelEjercicio->getEjercicio($id);
+            $clientes = $this->modelCliente->getClientes();
+            return $this->view->showEjercicio($ejercicio,$clientes);
+        }else{
+            return $this->view->showError('el ID del ejercicio esta vacio o no existe.');
+        }
+    }
+
+    //Funcion para crear un cliente
     public function crearPerfil(){
         $this->view->crearCliente();
         //Verificamos que los campos requeridos esten completos y no vacios.
@@ -41,12 +52,11 @@ class ClienteController{
         $this->modelCliente->addCliente($nombre, $email, $contraseña);
     }
 
-    public function delete($id){
-        $this->modelCliente->delCliente($id);
+    public function actualizarPerfil(){
+        
     }
 
-    public function verMas($id){
-        $ejercicio = $this->modelEjercicio->getEjercicio($id);
-        $this->view->showEjercicio($ejercicio);
+    public function delete($id){
+        $this->modelCliente->delCliente($id);
     }
 }
