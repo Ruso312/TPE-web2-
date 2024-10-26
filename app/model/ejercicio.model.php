@@ -17,7 +17,7 @@
 
     public function getEjercicio($id){
         $query = $this->db->prepare('SELECT * FROM ejercicio WHERE id = ?');
-        $query->execute($id);
+        $query->execute([$id]);
         return $query->fetch(PDO::FETCH_OBJ);
     }
     
@@ -36,7 +36,7 @@
 
     public function addEjercicio($nombre_ejercicio,$musculo_implicado,$descripcion,$series,$repeticiones){
         $query = $this->db->prepare('INSERT INTO ejercicio (nombre_ejercicio, musculo_implicado, descripcion, series, repeticiones)
-                                     VALUES (?, ?, ?, ?, ?)');
+                                    VALUES (?, ?, ?, ?, ?)');
         $query->execute([$nombre_ejercicio,$musculo_implicado,$descripcion,$series,$repeticiones]);
     }
 

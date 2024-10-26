@@ -27,7 +27,7 @@ class ClienteModel {
 
     public function addCliente($nombre,$email,$contraseña){
         $query = $this->db->prepare('INSERT INTO cliente (nombre, email, contraseña)
-                                     VALUES (?, ?, ?)');
+                                    VALUES (?, ?, ?)');
         $query->execute([$nombre,$email,$contraseña]);
     }
 
