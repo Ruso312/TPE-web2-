@@ -22,7 +22,7 @@ class ClienteEjercicioView{
         require './src/template/layout/showError.phtml';
     }
 
-    public function showEjercicio($ejercicio){
-        require './src/templates/layout/ejercicio';
+    public function showEjercicio($ejercicio,$clientes){
+        require './src/templates/detalle.phtml';
     }
 }
