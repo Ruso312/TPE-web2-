@@ -28,7 +28,7 @@
             sessionAuthMiddleware($res);
             verifyAuthMiddleware($res);
             $controlador = new ClienteController($res);
-            $controlador->delete($id,);
+            $controlador->delete($id);
             break; 
         case 'actualizarCliente':
         case 'cargarCliente':
@@ -41,17 +41,21 @@
             $controlador = new AuthController();
             $controlador->showLogin();
             break;
+        case 'detalle':
+            $controlador = new ClienteController($res);
+            $controlador->showEjercicio($parametro[1]);
+            break;
         case 'login':
             $controlador = new AuthController();
             $controlador->login();
             break;
+        case 'registrar':
+            $controlador = new AuthController();
+            $controlador->registrarCliente();
+            break;
         case 'logout':
             $controlador = new AuthController();
             $controlador->logout();
-            break;
-        case 'verMas':
-            $controlador = new ClienteController($res);
-            $controlador->verMas($id);
             break;
         default: 
             $controlador = new ClienteController($res);
