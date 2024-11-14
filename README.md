@@ -38,8 +38,8 @@ Estos ejercicios se almacenan en una tabla llamada *Ejercicio* donde se incluye 
  Para acceder a la pagina y poder modificar datos, existe una cuenta para testear esto.
  En el Header de la pagina se encuentra un boton de Login, al apretar en el nos envia a un formulario de Login, ahi se debera de ingresar los siguientes datos:
  <pre>
-  Email: webadmin@gmail.com
-  Contraseña: admin
+  -Email: webadmin@gmail.com
+  -Contraseña: admin
 </pre>
  ### Navegacion
  La navegacion es demaciado intuitiva, simplemente con los enlaces a donde llevan los diferentes links y estando logeado se puede manipular al total la pagina.
