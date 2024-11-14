@@ -1,0 +1,42 @@
+<?php require_once './src/templates/layout/header.phtml'; ?>
+
+
+<?php if ($ejercicios): ?>
+    <ul class="list-group">
+    <?php foreach ($ejercicios as $ejercicio): ?>
+        <h1>Detalle de: <?= $ejercicio->nombre_ejercicio ?> </h1>
+        <?php if($this->cliente):?>
+            <p><a href="showEditar/ejercicio/<?= $ejercicio->id ?>" type="button">Editar</a> | <a href="delete/ejercicio/<?= $ejercicio->id ?>" type="button">Eliminar</a></p>
+        <?php endif; ?>
+            <li class="list-group-item item-ejercicio mt-1">
+                <h3>Músculo implicado en el ejercicio</h3>
+                <?= $ejercicio->musculo_implicado ?>
+            </li>
+            <li class="list-group-item item-ejercicio mt-1">
+                <h3>Descripción</h3>
+                <?= $ejercicio->descripcion ?>
+            </li>
+            <li class="list-group-item item-ejercicio mt-1">
+                <h3>Número de series:</h3>
+                <?= $ejercicio->series ?>
+            </li>
+            <li class="list-group-item item-ejercicio mt-1">
+                <h3>Número de repeticiones:</h3>
+                <?= $ejercicio->repeticiones ?>
+            </li>
+
+            <?php foreach ($clientes as $cliente): ?>
+                <?php if ($ejercicio->cliente_id == $cliente->id): ?>
+                    <li class="list-group-item item-ejercicio mt-1">
+                        <h4>Cliente que realiza la actividad:</h4>
+                        <?= $cliente->nombre ?>
+                    </li>
+                <?php endif; ?>
+            <?php endforeach; ?>
+    <?php endforeach; ?>
+    </ul>
+<?php else: ?>
+    <p>No hay ejercicios cargados en los clientes.</p>
+<?php endif; ?>
+
+<?php require_once './src/templates/layout/footer.phtml'; ?>

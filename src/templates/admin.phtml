@@ -1,0 +1,26 @@
+<?php require_once './src/templates/layout/header.phtml' ?>
+
+<h1>Clientes:</h1>
+<h5><a href="crearCliente" type="button">Agregar cliente</a></h5>
+<ul class="list-group">
+    <?php foreach ($clientes as $cliente): ?>
+        <?php if($cliente->id != 1):?>
+            <li class="list-group-item item-ejercicio mt-1">
+                <div>
+                    <h3><?= $cliente->nombre ?> | <a href="showEditar/cliente/<?= $cliente->id ?>" type="button">Editar</a> |  <a href="delete/cliente/<?= $cliente->id ?>" type="button">Eliminar</a></p></h3>
+                    <p>Email: <?= $cliente->email ?></p>
+                </div>
+                <?php foreach ($ejercicios as $ejercicio): ?>
+                    <?php if($ejercicio->cliente_id == $cliente->id):?>
+                        <div class="pb-3">
+                            <p><?=$ejercicio->nombre_ejercicio ?> | <a href="detalle/<?= $ejercicio->id ?>" type="button">Ver detalle</a> | <a href="showEditar/ejercicio/<?= $ejercicio->id ?>" type="button">Editar</a> | <a href="delete/ejercicio/<?= $ejercicio->id ?>" type="button">Eliminar</a></p>                          
+                        </div>
+                    <?php endif;?>
+                <?php endforeach; ?>
+                <p><a href="crearEjercicio/<?= $cliente->id ?>">Agregar un ejercicio a <?= $cliente->nombre ?></a></p>
+            </li>
+        <?php endif;?>
+    <?php endforeach; ?>
+</ul>
+
+<?php require_once './src/templates/layout/footer.phtml'; ?>

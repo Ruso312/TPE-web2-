@@ -1,38 +1,7 @@
 <?php require './src/templates/layout/header.phtml'?>
 
-<h1>Clientes:</h1>
-<ul class="list-group">
-    <?php foreach ($clientes as $cliente): ?>
-        <?php if($cliente->rol != 'admin'):?>
-            <li class="list-group-item item-ejercicio mt-1">
-                <div>
-                    <h3><?= $cliente->nombre ?></h3>
-                </div>
-                <?php foreach ($ejercicios as $ejercicio): ?>
-                    <?php if($ejercicio->cliente_id == $cliente->id):?>
-                        <div class="pb-3 flex">
-                            <p><?=$ejercicio->nombre_ejercicio ?></p>
-                            <a href="detalle/<?= $ejercicio->id ?>" type="button">Ver detalle</a>
-                        </div>
-                    <?php endif;?>
-                <?php endforeach ?>
-            </li>
-        <?php endif;?>
-    <?php endforeach; ?>
-</ul>
+<h1><a href="detalle/cliente">Ver Clientes</a></h1>
 
-<h1 class="mt-5">Ejercicios cargados en el sistema:</h1>
-<ul class="list-group">
-    <?php foreach ($ejercicios as $ejercicio): ?>
-        <li class="list-group-item item-ejercicio mt-3">
-            <div>
-                <b><?= $ejercicio->nombre_ejercicio ?></b> | <b><?=$ejercicio->musculo_implicado ?></b>
-            </div>
-            <div class="actions">
-                <a href="detalle/<?= $ejercicio->id ?>" type="button">Ver detalle</a>
-            </div>
-        </li>
-    <?php endforeach ?>
-</ul>
+<h1><a href="detalle/ejercicio">Ver Ejercicios</a></h1>
 
 <?php require_once './src/templates/layout/footer.phtml'; ?>

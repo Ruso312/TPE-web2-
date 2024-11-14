@@ -1,11 +1,8 @@
 <?php
     
-class ClienteModel {
-    private $db;
+require_once 'model.php';
 
-    public function __construct(){
-        $this->db = new PDO('mysql:host=localhost;dbname=gimnasio;charset=utf8', 'root', '');
-    }
+class ClienteModel extends Model{
 
     public function getClientes(){
         $query = $this->db->prepare('SELECT * FROM cliente');
@@ -25,13 +22,13 @@ class ClienteModel {
         return $query->fetch(PDO::FETCH_OBJ);
     }
 
-    public function addCliente($nombre,$email,$contraseña){
-        $query = $this->db->prepare('INSERT INTO cliente (nombre, email, contraseña)
-                                    VALUES (?, ?, ?)');
-        $query->execute([$nombre,$email,$contraseña]);
+    public function addCliente($nombre,$email){
+        $query = $this->db->prepare('INSERT INTO cliente (nombre, email)
+                                    VALUES (?, ?)');
+        $query->execute([$nombre,$email]);
     }
 
-    //Funciones para actualizar los datos del Cliente segun un parametro dado(manejado en el controlador)
+    //Funciones para actualizar los datos del Cliente segun un parametro dado
     public function updateNombreCliente($nombre, $id){
         $query = $this->db->prepare('UPDATE cliente SET nombre=? WHERE id=?');
         $query->execute([$nombre,$id]);
@@ -40,12 +37,12 @@ class ClienteModel {
         $query = $this->db->prepare('UPDATE cliente SET email=? WHERE id=?');
         $query->execute([$email,$id]);
     }
-    public function updateContraseñaCliente($contraseña, $id){
-        $query = $this->db->prepare('UPDATE cliente SET contraseña=? WHERE id=?');
-        $query->execute([$contraseña,$id]);
-    }
 
-    public function delCliente($id){
+    public function delCliente($id){     
+        //Elimino los ejercicios vinculados al Cliente (sino no se puede eliminar por )
+        $query = $this->db->prepare('DELETE FROM ejercicio WHERE cliente_id = ?');
+        $query->execute([$id]);
+        //Elimino el Cliente una vez eliminados los Ejercicios vinculados.
         $query = $this->db->prepare('DELETE FROM cliente WHERE id = ?');
         $query->execute([$id]);
     }

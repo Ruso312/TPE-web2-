@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-09-2024 a las 17:58:32
+-- Tiempo de generación: 14-11-2024 a las 21:04:06
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -24,25 +24,42 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `admin`
+--
+
+CREATE TABLE `admin` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(15) NOT NULL,
+  `email` varchar(45) NOT NULL,
+  `contraseña` char(60) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `admin`
+--
+
+INSERT INTO `admin` (`id`, `nombre`, `email`, `contraseña`) VALUES
+(1, 'admin', 'webadmin@gmail.com', '$2y$10$0YLdYPUPCs7Lo2pHKJKWdeoRdlAA/Zamtw4efaUHkAf6KN4xUP3lG');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `cliente`
 --
 
 CREATE TABLE `cliente` (
   `id` int(11) NOT NULL,
   `nombre` varchar(40) NOT NULL,
-  `email` varchar(40) NOT NULL,
-  `contraseña` varchar(100) NOT NULL,
-  `rol` varchar(25) NOT NULL
+  `email` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Volcado de datos para la tabla cliente
+-- Volcado de datos para la tabla `cliente`
 --
 
-INSERT INTO `cliente` (`id`, `nombre`, `email`, `contraseña`, `rol`) VALUES
-(1, 'admin', 'webadmin@gmail.com', '$2y$10$/Q9UfoEoQafhi0r.mZ1MZ.CkeFQqUr/Dg1FT6MUnSM0kNZqlsMLCO', 'admin'),
-(2, 'Patricio', 'patri@gmail.com', '$2y$10$4o/UXKIvFQjsX90oN08IeeO0DteWsd.2/Ayse18Vs9AUpN/aNYhue', 'cliente'),
-(3, 'Marco', 'marco@gmail.com', '$2y$10$OMg1h19GwZ.NYkDwEj3ySO1IzsMS9r50zfCQwGLlwChcctHIsTMr2', 'cliente');
+INSERT INTO `cliente` (`id`, `nombre`, `email`) VALUES
+(2, 'Hernan', 'matapollo@gmail.com'),
+(3, 'Marco', 'marco123@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -57,12 +74,26 @@ CREATE TABLE `ejercicio` (
   `descripcion` text DEFAULT NULL,
   `series` int(10) NOT NULL,
   `repeticiones` int(30) NOT NULL,
-  `cliente_id` int(11) NOT NULL
+  `cliente_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `ejercicio`
+--
+
+INSERT INTO `ejercicio` (`id`, `nombre_ejercicio`, `musculo_implicado`, `descripcion`, `series`, `repeticiones`, `cliente_id`) VALUES
+(13, 'Sentadillas', 'cuadriceps', 'Ejercicio para fortalecer las piernas', 4, 6, 2);
 
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- Indices de la tabla `cliente`
@@ -82,16 +113,22 @@ ALTER TABLE `ejercicio`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT de la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `ejercicio`
 --
 ALTER TABLE `ejercicio`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Restricciones para tablas volcadas
@@ -103,10 +140,6 @@ ALTER TABLE `ejercicio`
 ALTER TABLE `ejercicio`
   ADD CONSTRAINT `fk_cliente` FOREIGN KEY (`cliente_id`) REFERENCES `cliente` (`id`);
 COMMIT;
-
-INSERT INTO `ejercicio` (`id`, `nombre_ejercicio`, `musculo_implicado`, `descripcion`, `series`, `repeticiones`, `cliente_id`) VALUES
-(1, 'Sentadilla', 'Cuadriceps', 'Con la barra cargada en los hombros, realizar una flexión de rodillas donde los gluteos casi toquen los tobillos, luego volver a extensión.', 3, 8, 2),
-(2, 'Remo acostado', 'Espalda', 'Recostado boca abajo sobre un banco elevado, llevar la barra al pecho flexionando los codos, intentando que el movimiento sea lo más recto posible.', 4, 6, 2);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
