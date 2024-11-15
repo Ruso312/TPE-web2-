@@ -12,11 +12,14 @@ Estos ejercicios se almacenan en una tabla llamada *Ejercicio* donde se incluye 
 
 
 # Diagrama *Entidad-Relacion* de la base de datos del proyecto:
-![image](https://github.com/user-attachments/assets/9113c7a8-1fb1-4182-bbfb-531693f88754)
+![image](https://github.com/user-attachments/assets/a674fa89-147d-4522-abff-513f4bd4c3e7)
 
 
 
 ### Explicacion de las tablas involucradas
+**Admin**
+ La tabla de admin esta creada para separar las responsabilidades que tienen para con la pagina los usuarios comunes(Clientes).
+ 
 **Cliente:**
   La tabla Cliente simula un usuario que este utilizando la aplicacion que ingresara los datos de los ejercicios que va a realizar, este consta de:
 <pre>  
@@ -30,4 +33,25 @@ Estos ejercicios se almacenan en una tabla llamada *Ejercicio* donde se incluye 
   - id: Identificacion unica del ejercicio.
   - cliente_id: Clave foranea que vincula un Cliente con un Ejercicio dado.
 </pre>
--
+
+### Como acceder a la manipulacion de datos
+ Para acceder a la pagina y poder modificar datos, existe una cuenta para testear esto.
+ En el Header de la pagina se encuentra un boton de Login, al apretar en el nos envia a un formulario de Login, ahi se debera de ingresar los siguientes datos:
+ <pre>
+  -Email: webadmin@gmail.com
+  -Contraseña: admin
+</pre>
+ ### Navegacion
+ La navegacion es demaciado intuitiva, simplemente con los enlaces a donde llevan los diferentes links y estando logeado se puede manipular al total la pagina.
+ De querer movilizarce por url, estos son los enlaces disponibles:
+<pre>
+ -Home de la pagina: /home
+ -Eliminar un cliente: /delete/cliente/[ID_CLIENTE]
+ -Eliminar un ejercicio: /delete/ejercicio/[ID_EJERCICIO]
+ -Editar un cliente: /showEditar/cliente/[ID_CLIENTE]
+ -Editar un ejercicio: /showEditar/ejercicio/[ID_EJERCICIO]
+ -Detallar los clientes: /detalle/cliente
+ -Detallar los ejercicios: /detalle/ejercicio
+</pre>
+
+ 
